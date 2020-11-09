@@ -1,13 +1,22 @@
 window.addEventListener('load', () => {
   let dateNow = new Date();
   const dateBirthday = new Date(2020, 11, 10, 12, 0, 0);
+  let main = document.querySelector('.main');
   if(dateBirthday >= dateNow) {
-    let main = document.querySelector('.main');
     main.parentNode.removeChild(main);
     return;
   }
+  else {
+    main.style.display = 'flex';
+  }
   createBackground();
   happyBirthday();
+
+  let audio = document.querySelector("audio");
+  audio.onclick = ()=> {
+    audio.play(); 
+  }
+  audio.play();
 }) 
 function boom(interval) {
   let background = document.querySelector('.background');
@@ -48,10 +57,10 @@ function boom(interval) {
     setTimeout(() => {
       background.parentNode.removeChild(background);
     }, 13000);
-    setInterval(() => {
-      imageLoop(0);
+    setTimeout(() => {
+      imageLoop(1);
     }, 13000);
-  }, 5000);
+  }, 30000);
 }
 function happyBirthday() {
   const background = document.querySelector('.background');
@@ -64,9 +73,9 @@ function happyBirthday() {
   background.appendChild(birthday);
   background.appendChild(birthdayImage);
 }
-async function createBackground() {
+function createBackground() {
   const body = document.querySelector('body');
-  await addBackground(body);
+  addBackground(body);
   const background = body.querySelector('.background');
   const maskContainer = background.querySelectorAll('.mask-container');
   addMasks(maskContainer);
@@ -165,9 +174,7 @@ function imageLoop(indexNow) {
   const mask = document.querySelector('.image-mask');
   const images = document.querySelectorAll('.img');
   setInterval(() => {
-    setTimeout(() => {
-      mask.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
-    }, 0);
+    mask.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
     setTimeout(() => {
       mask.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
       for(let i = 0; i < images.length; i++) {
@@ -176,5 +183,5 @@ function imageLoop(indexNow) {
       images[indexNow].style.zIndex = '10';
       indexNow = (indexNow + 1) % 4;
     }, 500);
-  }, 5000)
+  }, 5000);
 }

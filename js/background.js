@@ -1,7 +1,7 @@
 window.addEventListener('load', () => {
   let dateNow = new Date();
   const dateBirthday = new Date(2020, 11, 10, 12, 0, 0);
-  if(dateBirthday >= dateNow) {
+  if(dateBirthday <= dateNow) {
     let main = document.querySelector('.main');
     main.parentNode.removeChild(main);
     return;

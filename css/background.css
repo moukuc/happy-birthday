@@ -1,0 +1,99 @@
+.background {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(121, 168, 174);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.background .grid {
+  width: 5vw;
+  height: 10vh;
+  background-color: rgb(121, 168, 174);
+  position: absolute;
+  top: calc(var(--row) * 10);
+  left: calc(var(--col) * 5);
+}
+.background .grid.break {
+  animation: grid_break 5s linear forwards;
+}
+@keyframes grid_break {
+  0% {
+    transform: translate(0);
+  }
+  10% {
+    transform: rotateX(15deg) rotateY(15deg) rotateZ(15deg);
+  }
+  35% {
+    transform: translateY(120vh) rotateX(135deg) rotateY(135deg) rotateZ(135deg) ;
+  }
+  100% {
+    transform: translateY(120vh) rotateX(335deg) rotateY(335deg) rotateZ(335deg) ;
+  }
+}
+.background .mask {
+  width: calc(var(--size));
+  height: calc(var(--size));
+  background-color: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  top: var(--row);
+  left: var(--col);
+  transform: rotate(var(--rotate));
+  animation: mask_usual var(--time) linear forwards;
+  transition: 2s;
+}
+.background .mask.break {
+  background-color: white;
+}
+.background .mask.break.boom {
+  box-shadow: 0 0 20vw 20vw white;
+}
+@keyframes mask_usual {
+  0% {
+    transform: translateY(100vh) translateX(0) rotate(var(--rotate));
+  }
+  100% {
+    transform: translateY(-120vh) translateX(-1rem) ;
+  }
+}
+
+.background .birthday {
+  width: 4rem;
+  height: 2rem;
+  color: white;
+  position: absolute;
+  font-size: 0.5rem;
+  top: calc(50% - 1rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: birthday 0.5s forwards;
+  font-weight: 300;
+  
+}
+@keyframes birthday {
+  0% {
+    transform: translateX(-50%) translateY(-50%) scale(0.3);
+    color: black;
+  }
+  80% {
+    transform: translateX(-50%) translateY(-50%) scale(1.05);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) scale(1);
+    color: white;
+  }
+}
+.background .birthday-image {
+  width: 4rem;
+  height: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}

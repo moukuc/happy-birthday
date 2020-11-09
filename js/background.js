@@ -1,14 +1,14 @@
 window.addEventListener('load', () => {
   let dateNow = new Date();
   const dateBirthday = new Date(2020, 11, 10, 12, 0, 0);
-  if(dateBirthday <= dateNow) {
-    let main = document.querySelector('.main');
-    main.parentNode.removeChild(main);
-    return;
-  }
-  createBackground();
-  happyBirthday();
-}) 
+//   if(dateBirthday >= dateNow) {
+//     let main = document.querySelector('.main');
+//     main.parentNode.removeChild(main);
+//     return;
+//   }
+//   createBackground();
+//   happyBirthday();
+// }) 
 function boom(interval) {
   let background = document.querySelector('.background');
   let grids = document.querySelectorAll('.grid');

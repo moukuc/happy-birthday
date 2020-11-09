@@ -2,6 +2,11 @@ window.addEventListener('load', () => {
   let dateNow = new Date();
   const dateBirthday = new Date(2020, 11, 10, 12, 0, 0);
   let main = document.querySelector('.main');
+  let audio = document.querySelector("audio");
+  audio.onclick = ()=> {
+    audio.play(); 
+  }
+  audio.play();
   if(dateBirthday >= dateNow) {
     main.parentNode.removeChild(main);
     return;
@@ -9,14 +14,10 @@ window.addEventListener('load', () => {
   else {
     main.style.display = 'flex';
   }
+
   createBackground();
   happyBirthday();
-
-  let audio = document.querySelector("audio");
-  audio.onclick = ()=> {
-    audio.play(); 
-  }
-  audio.play();
+ 
 }) 
 function boom(interval) {
   let background = document.querySelector('.background');

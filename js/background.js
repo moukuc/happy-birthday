@@ -1,6 +1,8 @@
 window.addEventListener('load', () => {
   let dateNow = new Date();
-  const dateBirthday = new Date(2020, 11, 10, 12, 0, 0);
+  const dateBirthday = new Date(2020, 10, 10, 12, 0, 0);
+  console.log(dateNow)
+  console.log(dateBirthday)
   let main = document.querySelector('.main');
   let audio = document.querySelector("audio");
   audio.onclick = ()=> {
